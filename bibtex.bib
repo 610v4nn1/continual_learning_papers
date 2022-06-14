@@ -416,7 +416,7 @@ keywords={TACL}
 @incollection{NIPS2019_8690,
 title={Uncertainty-based Continual Learning with Adaptive Regularization},
 author={Ahn, Hongjoon and Cha, Sungmin and Lee, Donggyu and Moon, Taesup},
-booktitle={Advances in v 32},
+booktitle={Advances in Neural Information Processing Systems 32},
 editor={H. Wallach and H. Larochelle and A. Beygelzimer and F. d\textquotesingle Alch\'{e}-Buc and E. Fox and R. Garnett},
 pages={4394--4404},
 year={2019},
@@ -1586,12 +1586,17 @@ keywords={Thesis}
 	journal = {bioRxiv}
 }
 
-
-@article{achille2018life,
-  title={Life-Long Disentangled Representation Learning with Cross-Domain Latent Homologies},
-  author={Achille, Alessandro and Eccles, Tom and Matthey, Loic and Burgess, Christopher P and Watters, Nick and Lerchner, Alexander and Higgins, Irina},
-  journal={arXiv preprint arXiv:1808.06508},
-  year={2018}
+@inproceedings{achille2018life,
+ author = {Achille, Alessandro and Eccles, Tom and Matthey, Loic and Burgess, Chris and Watters, Nicholas and Lerchner, Alexander and Higgins, Irina},
+ booktitle = {Advances in Neural Information Processing Systems},
+ editor = {S. Bengio and H. Wallach and H. Larochelle and K. Grauman and N. Cesa-Bianchi and R. Garnett},
+ pages = {},
+ publisher = {Curran Associates, Inc.},
+ title = {Life-Long Disentangled Representation Learning with Cross-Domain Latent Homologies},
+ url = {https://proceedings.neurips.cc/paper/2018/file/a0afdf1ac166b8652ffe9dee6eac779e-Paper.pdf},
+ volume = {31},
+ year = {2018},
+ kewwords={representation learning, generative replay}
 }
 
 
@@ -1615,7 +1620,8 @@ keywords={Thesis}
   title={Unicorn: Continual Learning with a Universal, Off-policy Agent},
   author={Mankowitz, Daniel J and {\v{Z}}{\'\i}dek, Augustin and Barreto, André and Horgan, Dan and Hessel, Matteo and Quan, John and Oh, Junhyuk and van Hasselt, Hado and Silver, David and Schaul, Tom},
   journal={arXiv preprint arXiv:1802.08294},
-  year={2018}
+  year={2018},
+  keywords={reinforcement}
 }
 
 @article{gepperth16bio,
@@ -3242,3 +3248,51 @@ url={https://openreview.net/forum?id=D9E8MKsfhw}
   organization={Springer},
 keywords={Replay,Pretrained Model}
 }
+
+@misc{Ostapenko2022Foundational,
+  doi = {10.48550/ARXIV.2205.00329},
+  url = {https://arxiv.org/abs/2205.00329},
+  author = {Ostapenko, Oleksiy and Lesort, Timothee and Rodríguez, Pau and Arefin, Md Rifat and Douillard, Arthur and Rish, Irina and Charlin, Laurent},
+  keywords = {Machine Learning (cs.LG), Artificial Intelligence (cs.AI), FOS: Computer and information sciences, FOS: Computer and information sciences},
+  title = {Foundational Models for Continual Learning: An Empirical Study of Latent Replay},
+  publisher = {arXiv},
+  year = {2022},
+  copyright = {arXiv.org perpetual, non-exclusive license},
+  keywords={replay, pretraining}
+}
+@String(Ostapenko2022Foundational="an empirical investigation of latent replay with pretrained models.")
+
+@article{ke2020continual,
+  title={Continual learning of a mixed sequence of similar and dissimilar tasks},
+  author={Ke, Zixuan and Liu, Bing and Huang, Xingchang},
+  journal={Advances in Neural Information Processing Systems},
+  volume={33},
+  pages={18493--18504},
+  url = {https://proceedings.neurips.cc/paper/2020/file/d7488039246a405baf6a7cbc3613a56f-Paper.pdf},
+  year={2020},
+  keywords={Similarity}
+}
+@String(ke2020continual="propose a method to compute task similarity and adapt consequently")
+
+@inproceedings{
+pham2022continual,
+title={Continual Normalization: Rethinking Batch Normalization for Online Continual Learning},
+author={Quang Pham and Chenghao Liu and Steven HOI},
+booktitle={International Conference on Learning Representations},
+year={2022},
+url={https://openreview.net/forum?id=vwLLQ-HwqhZ},
+  keywords={Architecture}
+}
+@String(pham2022continual="propose a new normalization layer for CL")
+
+<<<<<<< HEAD
+=======
+@inproceedings{de2021continual,
+  title={Continual prototype evolution: Learning online from non-stationary data streams},
+  author={De Lange, Matthias and Tuytelaars, Tinne},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  pages={8250--8259},
+  year={2021}
+}
+
+>>>>>>> master
