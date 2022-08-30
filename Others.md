@@ -31,6 +31,11 @@
 [Avalanche](https://github.com/ContinualAI/avalanche)
 ```Avalanche: an End-to-End Library for Continual Learning```
 
+[PyCIL](https://github.com/G-U-N/PyCIL)
+```PyCIL: A Python Toolbox for Class-Incremental Learning```
+
+[continual-learning-reproduce]([https://github.com/G-U-N/PyCIL](https://github.com/zhchuu/continual-learning-reproduce))
+```Implementation of continual learning methods```
 
 ### Datasets and Benchmarks
 

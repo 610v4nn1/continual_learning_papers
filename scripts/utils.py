@@ -2,6 +2,30 @@ import os
 import bibtexparser
 
 bibtex_filename = str(os.path.join(os.getcwd(),'bibtex.bib'))
+online_bibtex_filename = "https://github.com/optimass/continual_learning_papers/blob/master/bibtex.bib"
+
+
+conferences_list = [["ICLR", "International Conference on Learning Representations"],
+               ["CVPR", "Conference on Computer Vision and Pattern Recognition"],
+               ["ICCV", "International Conference on Computer Vision"],
+               ["ECCV", "European Conference on Computer Vision"],
+               ["NeurIPS", "NIPS", "Neural Information Processing Systems"],
+               ["ICML", "International Conference on Machine Learning"],
+               ["IJCAI", "International Joint Conference on Artificial Intelligence"],
+               ["IJCNN", "International Joint Conference on Neural Networks"],
+               ["ICANN", "International Conference on Artificial Neural Networks"],
+               ["ICPR", "International Conference on Pattern Recognition"],
+               ["CoRL", "Conference on Robot Learning"],
+               ["arXiv"]]
+
+journal_list = [["Information Fusion"],
+                ["Neural Networks"],
+                ["PNAS", "Proc. of the national academy of sciences", "national academy of sciences"],
+                ["TPAMI", "Transactions on Pattern Analysis and Machine Intelligence"],
+                ["TMM", "Transactions on Multimedia"],
+                ["PRL", "Pattern Recognition Letters"],
+                ["arXiv", "Corr"]]
+
 
 
 def keep_last_and_only(authors_str):
@@ -44,10 +68,33 @@ def get_bibtex_line(filename, ID):
     assert end_line_number > 0
     return start_line_number, end_line_number
 
+def get_conf(entry):
+
+    extension = ""
+
+    for conference_names in conferences_list:
+        key = "booktitle"
+
+        if key in entry.keys():
+            if "workshop" in entry[key] or "Workshop" in entry[key] or "WORKSHOP" in entry[key]:
+                extension = " Workshop"
+
+            for conference_name in conference_names:
+                if conference_name in entry[key]:
+                    return conference_names[0] + extension + " "
+
+    for journal_names in journal_list:
+        key = "journal"
+        if key in entry.keys():
+
+            for journal_name in journal_names:
+                if journal_name in entry[key]:
+                    return journal_names[0] + " "
+    return ""
 
 def create_bib_link(ID):
-    link = bibtex_filename
-    start_bib, end_bib = get_bibtex_line(link, ID)
+    link = online_bibtex_filename
+    start_bib, end_bib = get_bibtex_line(bibtex_filename, ID)
 
     # bibtex file is one folder upon markdown files
     #link = "../blob/master/" + link
@@ -70,7 +117,7 @@ def get_md_entry(DB, entry, add_comments=True):
     else:
         md_str += "- **" + entry['title'] + "**"
 
-    md_str += ", (" + entry['year'] + ")"
+    md_str += ", (" + get_conf(entry) + entry['year'] + ")"
 
     md_str += " by *" + keep_last_and_only(entry['author']) + "*"
 
@@ -120,7 +167,14 @@ def get_md(DB, item, key, add_comments):
 def get_outline(list_classif, filename):
     str_outline = "# Continual Learning Literature \n"
 
-    str_outline += "This repository is maintained by Massimo Caccia and Timothée Lesort don't hesitate to send us an email to collaborate or fix some entries ({massimo.p.caccia , t.lesort} at gmail.com). The automation script of this repo is adapted from [Automatic_Awesome_Bibliography](https://github.com/TLESORT/Automatic_Awesome_Bibliography).\n\n For contributing to the repository please follow the process [here](https://github.com/optimass/continual_learning_papers/blob/master/scripts/README.md) \n\n You can directly use our bib.tex in overleaf [with this link](https://www.overleaf.com/project/606f5acf8bf59dcda3e66f9e) \n\n"
+    str_outline += "This repository is maintained by Massimo Caccia and Timothée Lesort don't hesitate to send us an" \
+                   " email to collaborate or fix some entries ({massimo.p.caccia , t.lesort} at gmail.com)." \
+                   " The automation script of this repo is adapted from " \
+                   "[Automatic_Awesome_Bibliography](https://github.com/TLESORT/Automatic_Awesome_Bibliography).\n\n" \
+                   " For contributing to the repository please follow the process" \
+                   " [here](https://github.com/optimass/continual_learning_papers/blob/master/scripts/README.md) \n\n" \
+                   " You can directly use our bib.tex in overleaf" \
+                   " [with this link](https://www.overleaf.com/project/606f5acf8bf59dcda3e66f9e) \n\n"
 
     str_outline += "## Outline \n"
 
